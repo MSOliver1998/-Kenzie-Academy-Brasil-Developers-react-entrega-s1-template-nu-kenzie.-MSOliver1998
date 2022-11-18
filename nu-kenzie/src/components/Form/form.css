@@ -1,0 +1,39 @@
+form{
+    height: 100%;
+    width: 100%;
+    padding: 12px;
+    display: flex;
+    gap:20px;
+    flex-direction: column;
+}
+
+form input,select{
+    margin: 4px;
+    width: 100%;
+    display: flex;
+    padding:2px;
+    border-radius: 8px;
+}
+
+.value{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+#valor{
+    display: flex;
+    align-items: center;
+}
+
+#valor input{
+    width: 38px;
+    height: fit-content;
+}
+
+@media (min-width: 600px) {
+    form{
+        height: 80%;
+        width: 50%;
+    }
+}
