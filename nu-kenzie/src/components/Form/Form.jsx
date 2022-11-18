@@ -1,24 +1,31 @@
 import './form.css'
 
-function Form({transations,set}){
-
+function Form({transations,setTransations,filtro,setFiltro}){
+    let id=transations.length-1
     function dataForm(event){
-        set({'nome':'noe','data':'12/07'})
-        console.log(transations)
         event.preventDefault()
-        let data={}
-        let dataForm=[...event.target.parentElement]
+        let dataForm=[...event.target.elements]
+         let data={}
         dataForm.forEach(el=>{
             if((el.tagName==='INPUT' || el.tagName==='SELECT') && el.value !==''){
                 data[el.id]=el.value
+                el.value=''
             }
+            data['id']=(transations[id].id)+1 || 0
         })
+        if(data.type==='saída'){
+            data.value=Number(data.value)*-1
+        }
+        if(filtro){
+            setFiltro([...filtro,data])
+        }
+        setTransations([...transations,data]) 
     }
     return(
-        <form action="">
+        <form onSubmit={dataForm}>
             <div className='description'>
                 <label htmlFor="">Descrição</label>
-                <input placeholder='descrição' required={true} type="text" id='description'/>
+                <input placeholder='descrição' required type="text" id='description'/>
                 <label htmlFor="" aria-disabled>Ex: Compra de roupas</label>
             </div>
             <div className='value'>
@@ -26,7 +33,7 @@ function Form({transations,set}){
                     <label htmlFor="">Valor</label>
                     <div id='valor'> 
                         <p>R$:</p>
-                        <input placeholder='valor' required={true} type="text" id='value'/>
+                        <input placeholder='valor' required={true} type="number" min={0} id='value'/>
                     </div>
                 </div>
                 <div>
@@ -34,11 +41,11 @@ function Form({transations,set}){
                     <select name="" required={true} id="type">
                         <option value="">Selecionar</option>
                         <option value="entrada">Entrada</option>
-                        <option value="saida">Saída</option>
+                        <option value="saída">Saída</option>
                     </select>
                 </div>
             </div>
-            <button onClick={dataForm}>Inserir valor</button>
+            <button>Inserir valor</button>
         </form>
     )
 }

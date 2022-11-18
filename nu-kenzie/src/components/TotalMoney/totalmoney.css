@@ -1,0 +1,28 @@
+.total{
+    margin-top: 25px;
+}
+
+.valor{
+    width: 100%;
+    height: 50%;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    align-content: flex-start;
+}
+
+.valor p{
+    color:var(--color-brand-1)
+}
+
+
+@media (min-width:600px){
+    .valor{
+        align-items: center;
+        max-width: 300px;
+        flex-direction: row;
+        width: 100%;
+    }
+}
