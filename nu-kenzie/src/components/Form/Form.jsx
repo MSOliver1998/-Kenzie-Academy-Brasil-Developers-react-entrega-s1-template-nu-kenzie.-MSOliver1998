@@ -11,7 +11,7 @@ function Form({transations,setTransations,filtro,setFiltro}){
                 data[el.id]=el.value
                 el.value=''
             }
-            data['id']=(transations[id].id)+1 || 0
+            data['id']=id>0 ? (transations[id].id)+1 : 0
         })
         if(data.type==='saída'){
             data.value=Number(data.value)*-1
