@@ -17,13 +17,11 @@ function Form({transations,setTransations,filtro,setFiltro}){
             data.value=Number(data.value)*-1
         }
         if(filtro){
-            filtro.length>0?
-                filtro[0].type===data.type ?
+            if(filtro.length>0){
+                if(filtro[0].type===data.type){
                     setFiltro([...filtro,data])
-                :
-                console.log('filtro')
-            :
-            console.log('vazio')
+                }
+            }
         }
         setTransations([...transations,data]) 
     }
