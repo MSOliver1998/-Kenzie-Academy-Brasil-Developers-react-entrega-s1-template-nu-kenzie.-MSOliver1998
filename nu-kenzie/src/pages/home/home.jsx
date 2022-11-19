@@ -24,16 +24,23 @@ function Home(logado){
     const [listFiltro,setFiltro]=useState()
     function filtrar(event){
         
-        let texto=event.target.innerText
+        let texto=(event.target.innerText).toLowerCase()
+        let nav=(event.target.parentElement).childNodes
+        nav.forEach(el=>{
+            el.classList.remove('select')
+        })
 
         if(texto==='entradas'){
             setFiltro(listTransactions.filter(el=>el.type==='entrada'))
+            event.target.className='select'
         }
         if(texto==='saídas'){
             setFiltro(listTransactions.filter(el=>el.type==='saída'))
+            event.target.className='select'
         }
         if(texto==='todos'){
             setFiltro()
+            event.target.className='select'
         }
     }
 
@@ -72,9 +79,9 @@ function Home(logado){
                         <div className='header'>
                             <p>Resumo financeiro</p>
                             <nav>
-                                <button onClick={filtrar}>todos</button>
-                                <button onClick={filtrar}>entradas</button>
-                                <button onClick={filtrar}>saídas</button>
+                                <button className='select' onClick={filtrar}>Todos</button>
+                                <button onClick={filtrar}>Entradas</button>
+                                <button onClick={filtrar}>Saídas</button>
                             </nav>
                         </div>
                         <div className='lancamentos'>

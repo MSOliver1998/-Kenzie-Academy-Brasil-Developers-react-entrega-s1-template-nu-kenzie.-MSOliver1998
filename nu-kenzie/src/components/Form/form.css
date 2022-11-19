@@ -5,6 +5,7 @@ form{
     display: flex;
     gap:20px;
     flex-direction: column;
+    min-width: 300px;
 }
 
 form input,select{

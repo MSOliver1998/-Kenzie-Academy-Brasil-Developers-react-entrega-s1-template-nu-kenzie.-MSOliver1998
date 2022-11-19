@@ -18,6 +18,13 @@
     justify-content: space-between;
 }
 
+.card h2{
+    min-width: 15ch;
+    max-width: 15ch;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+}
+
 .card p{
     text-transform: capitalize;
 }

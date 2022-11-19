@@ -7,8 +7,18 @@ function List({transations,setTransations,filtro,setFiltro}){
         return(
             <div className='list'>
                 {
-                    filtro ? 
-                    filtro.map((el,index)=><Card key={index} filtro={filtro} transations={transations} setTransations={setTransations} setFiltro={setFiltro} item={el}></Card>)
+                    filtro ?   
+
+                    filtro.length>0 ? 
+
+                        filtro.map((el,index)=><Card key={index} filtro={filtro} transations={transations} setTransations={setTransations} setFiltro={setFiltro} item={el}></Card>)
+                        :
+                        (
+                            <div className='list'>
+                                <h2>Você ainda não possui nenhum lançamento</h2>
+                                <img src={noCards} alt="" />
+                            </div>
+                        )
                     : 
                     transations.map((el,index)=><Card key={index} transations={transations} setTransations={setTransations} item={el}></Card>)
                 }
@@ -18,7 +28,7 @@ function List({transations,setTransations,filtro,setFiltro}){
     else{
         return(
             <div className='list'>
-                <h2>Vocêainda não possui nenhum lançamento</h2>
+                <h2>Você ainda não possui nenhum lançamento</h2>
                 <img src={noCards} alt="" />
             </div>
         )

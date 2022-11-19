@@ -7,7 +7,7 @@ function Card({item,transations,setTransations,filtro,setFiltro}){
         <div className={`card ${item.type}`} id={item.id}>
             <div>
                 <h2>{item.description}</h2>
-                <p>R$: {item.type==='entrada'? item.value : item.value*-1.}</p>
+                <p>R$: {item.type==='entrada'? Number(item.value).toFixed(2) : Number(item.value*-1).toFixed(2)}</p>
                 <img id='lixo' src={trash} alt="" onClick={()=>{
                         let index=transations.indexOf(item)
                         if(filtro){
