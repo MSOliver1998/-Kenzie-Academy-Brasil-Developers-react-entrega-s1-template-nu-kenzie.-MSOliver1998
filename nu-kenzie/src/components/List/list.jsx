@@ -9,9 +9,13 @@ function List({transations,setTransations,filtro,setFiltro}){
                 {
                     filtro ?   
 
-                    filtro.length>0 ? 
-
-                        filtro.map((el,index)=><Card key={index} filtro={filtro} transations={transations} setTransations={setTransations} setFiltro={setFiltro} item={el}></Card>)
+                    filtro.length>1 ? 
+                    
+                        filtro.map((el,index)=>{
+                            if(index>0){
+                                return(<Card key={index} filtro={filtro} transations={transations} setTransations={setTransations} setFiltro={setFiltro} item={el}></Card>)
+                            }
+                        })
                         :
                         (
                             <div className='list'>

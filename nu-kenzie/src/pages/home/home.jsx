@@ -31,11 +31,11 @@ function Home(logado){
         })
 
         if(texto==='entradas'){
-            setFiltro(listTransactions.filter(el=>el.type==='entrada'))
+            setFiltro([{ id:0, description: "", type: "entrada", value: 0 },...listTransactions.filter(el=>el.type==='entrada')])
             event.target.className='select'
         }
         if(texto==='saídas'){
-            setFiltro(listTransactions.filter(el=>el.type==='saída'))
+            setFiltro( [{ id:0, description: "", type: "saída", value: 0 },...listTransactions.filter(el=>el.type==='saída')])
             event.target.className='select'
         }
         if(texto==='todos'){
@@ -44,9 +44,19 @@ function Home(logado){
         }
     }
 
+
+    function darkMode(event){
+        event.target.innerText==='Dark'? event.target.innerText='Ligth' : event.target.innerText='Dark'
+        let body=document.querySelector('body')
+        body.classList.toggle('darkMode')
+    }
+
     if(login){
         return(
             <div className="home">
+                <header className='dark-d'>
+                    <button onClick={darkMode}>Ligth</button>
+                </header>
                 <main>
                     <div className="esquerda center">
                         <Logo></Logo>
@@ -68,7 +78,10 @@ function Home(logado){
             <div className='home'>
                 <header>
                     <Logo></Logo>
-                    <button onClick={logarDeslogar}>Home</button>
+                    <div className='menu'>
+                        <button onClick={logarDeslogar}>Home</button>
+                        <button onClick={darkMode}>Ligth</button>
+                    </div>
                 </header>
                 <main>
                     <div className="esquerda">
