@@ -19,29 +19,29 @@ function Form({transations,setTransations,filtro,setFiltro}){
         if(filtro){
             if(filtro.length>0){
                 if(filtro[0].type===data.type){
-                    setFiltro([...filtro,data])
+                    setFiltro((oldFiltro)=>[...oldFiltro,data])
                 }
             }
         }
-        setTransations([...transations,data]) 
+        setTransations((oldTransations)=>[...oldTransations,data]) 
     }
     return(
         <form onSubmit={dataForm}>
             <div className='description'>
-                <label htmlFor="">Descrição</label>
+                <label htmlFor="description">Descrição</label>
                 <input placeholder='descrição' required type="text" id='description'/>
                 <label htmlFor="" aria-disabled>Ex: Compra de roupas</label>
             </div>
             <div className='value'>
                 <div>
-                    <label htmlFor="">Valor</label>
+                    <label htmlFor="value">Valor</label>
                     <div id='valor'> 
                         <p>R$:</p>
                         <input placeholder='valor' required={true} type="number" min={0} id='value'/>
                     </div>
                 </div>
                 <div>
-                    <label htmlFor="">Tipo de valor</label> 
+                    <label htmlFor="type">Tipo de valor</label> 
                     <select name="" required={true} id="type">
                         <option value="">Selecionar</option>
                         <option value="entrada">Entrada</option>

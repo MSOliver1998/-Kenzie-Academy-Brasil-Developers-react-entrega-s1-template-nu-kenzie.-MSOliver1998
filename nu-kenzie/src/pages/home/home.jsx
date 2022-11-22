@@ -5,6 +5,7 @@ import {Logo} from '../../components/logo/logo'
 import {Form} from '../../components/Form/Form'
 import {List} from '../../components/List/list'
 import {TotalMoney} from '../../components/TotalMoney/totalmoney'
+import {Button} from '../../components/Button/Button'
 
 function Home(logado){
 
@@ -55,7 +56,7 @@ function Home(logado){
         return(
             <div className="home">
                 <header className='dark-d'>
-                    <button onClick={darkMode}>Ligth</button>
+                    <Button onClick={darkMode}>Ligth</Button>
                 </header>
                 <main>
                     <div className="esquerda center">
@@ -64,7 +65,7 @@ function Home(logado){
                             Centralize o controle das suas finanças
                         </h2>
                         <p>de forma rápida e segura</p>
-                        <button onClick={logarDeslogar}>Iniciar</button>
+                        <Button onClick={logarDeslogar}>Iniciar</Button>
                     </div>
                     <div className="direita">
                         <img src={imagem} alt="" />
@@ -79,8 +80,8 @@ function Home(logado){
                 <header>
                     <Logo></Logo>
                     <div className='menu'>
-                        <button onClick={logarDeslogar}>Home</button>
-                        <button onClick={darkMode}>Ligth</button>
+                        <Button onClick={logarDeslogar}>Home</Button>
+                        <Button onClick={darkMode}>Ligth</Button>
                     </div>
                 </header>
                 <main>
@@ -92,9 +93,9 @@ function Home(logado){
                         <div className='header'>
                             <p>Resumo financeiro</p>
                             <nav>
-                                <button className='select' onClick={filtrar}>Todos</button>
-                                <button onClick={filtrar}>Entradas</button>
-                                <button onClick={filtrar}>Saídas</button>
+                                <Button className='select' onClick={filtrar}>Todos</Button>
+                                <Button onClick={filtrar}>Entradas</Button>
+                                <Button onClick={filtrar}>Saídas</Button>
                             </nav>
                         </div>
                         <div className='lancamentos'>
