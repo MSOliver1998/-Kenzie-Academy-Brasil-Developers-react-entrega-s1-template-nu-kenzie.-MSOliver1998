@@ -1,0 +1,38 @@
+.card{
+    margin: 10px;
+    background-color: var(--color-grey-4);
+    padding: 15px 8px;
+    border-left: 8px solid transparent;
+    border-radius: 8px;
+    color:var(--color-grey-1)
+    
+}
+
+.card h2{
+    overflow: hidden;
+    width: 13ch;
+    text-overflow: ellipsis;
+    text-transform: capitalize;
+}
+
+.entrada{
+    border-color: var(--color-brand-3);
+}
+
+.saída{
+    border-color: var(--color-grey-3);
+}
+
+.card div{
+    display: flex;
+    width: 400px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card div p{
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    width: 15ch;
+}

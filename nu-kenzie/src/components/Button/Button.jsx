@@ -6,4 +6,19 @@ function Button({className,id,onClick,children}){
     )
 }
 
-export {Button}
+function ButtonDarkMode(){
+
+    const body=document.querySelector('body')
+    const DarkMode=[...body.classList].includes('darkMode')
+
+    function darkMode(event){
+        
+        event.target.innerText==='Dark'? event.target.innerText='Ligth' : event.target.innerText='Dark'
+        body.classList.toggle('darkMode')
+    }
+    return(
+        <Button onClick={darkMode}>{!DarkMode ? 'Ligth' : 'Dark'}</Button>
+    )
+}
+
+export {Button,ButtonDarkMode}

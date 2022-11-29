@@ -1,5 +1,4 @@
-import './card.css'
-//import trash from '../../img/trash.svg'
+import card from './card.module.css'
 import {FaTrash} from 'react-icons/fa'
 
 function Card({item,transations,setTransations,filtro,setFiltro}){
@@ -14,7 +13,7 @@ function Card({item,transations,setTransations,filtro,setFiltro}){
     }
 
     return(
-        <div className={`card ${item.type}`} id={item.id}>
+        <div className={`${card.card} ${card[item.type]}`} id={item.id}>
             <div>
                 <h2>{item.description}</h2>
                 <p>R$: {item.type==='entrada'? Number(item.value).toFixed(2) : Number(item.value*-1).toFixed(2)}</p>

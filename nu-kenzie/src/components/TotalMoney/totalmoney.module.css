@@ -1,0 +1,25 @@
+.valor{
+    width: 500px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    gap:10px;
+    flex-wrap: wrap;
+    width: fit-content;
+}
+
+.valor h2{
+    min-width: 8ch;
+    display: flex;
+    flex-wrap: nowrap;
+    width: fit-content;
+}
+
+.valor p{
+    min-width: 18ch;
+    display: flex;
+    color: var(--color-brand-1);
+    font-size: 25px;
+    flex-wrap: nowrap;
+}

@@ -1,18 +1,15 @@
-import './home.css'
-import imagem from '../../img/illustration.svg'
-import {useState} from 'react'
-import {Logo} from '../../components/logo/logo'
-import {Form} from '../../components/Form/Form'
-import {List} from '../../components/List/list'
-import {TotalMoney} from '../../components/TotalMoney/totalmoney'
-import {Button} from '../../components/Button/Button'
+import home from './home.module.css'
+import { useState } from "react"
+import { Button, ButtonDarkMode } from "../../components/Button/Button"
+import { Form } from "../../components/Form/Form"
+import { List } from "../../components/List/list"
+import { Logo } from "../../components/logo/logo"
+import { TotalMoney } from "../../components/TotalMoney/totalmoney"
 
-function Home(logado){
+function Home({setLogin}){
 
-    const [login,setLogin]=useState(logado)
-    
     function logarDeslogar(){
-        setLogin(!login)
+        setLogin((oldLogin)=>!oldLogin)
     }
 
     const [listTransactions,setListTransactions]=useState([
@@ -45,52 +42,23 @@ function Home(logado){
         }
     }
 
+    return(
 
-    function darkMode(event){
-        event.target.innerText==='Dark'? event.target.innerText='Ligth' : event.target.innerText='Dark'
-        let body=document.querySelector('body')
-        body.classList.toggle('darkMode')
-    }
-
-    if(login){
-        return(
-            <div className="home">
-                <header className='dark-d'>
-                    <Button onClick={darkMode}>Ligth</Button>
-                </header>
-                <main>
-                    <div className="esquerda center">
-                        <Logo></Logo>
-                        <h2>
-                            Centralize o controle das suas finanças
-                        </h2>
-                        <p>de forma rápida e segura</p>
-                        <Button onClick={logarDeslogar}>Iniciar</Button>
-                    </div>
-                    <div className="direita">
-                        <img src={imagem} alt="" />
-                    </div>
-                </main>
-            </div>
-        )
-    }
-    else{
-        return(
-            <div className='home'>
+        <div className={home.home}>
                 <header>
                     <Logo></Logo>
-                    <div className='menu'>
+                    <div className={home.menu}>
                         <Button onClick={logarDeslogar}>Home</Button>
-                        <Button onClick={darkMode}>Ligth</Button>
+                        <ButtonDarkMode></ButtonDarkMode>
                     </div>
                 </header>
                 <main>
-                    <div className="esquerda">
+                    <div className={home.esquerda}>
                         <Form transations={listTransactions} setTransations={setListTransactions} filtro={listFiltro} setFiltro={setFiltro}></Form>
                         <TotalMoney transations={listTransactions}></TotalMoney>
                     </div>
-                    <div className='direita'>
-                        <div className='header'>
+                    <div className={home.direita}>
+                        <div className={home.header}>
                             <p>Resumo financeiro</p>
                             <nav>
                                 <Button className='select' onClick={filtrar}>Todos</Button>
@@ -98,14 +66,13 @@ function Home(logado){
                                 <Button onClick={filtrar}>Saídas</Button>
                             </nav>
                         </div>
-                        <div className='lancamentos'>
+                        <div className={home.lancamentos}>
                             <List transations={listTransactions} setTransations={setListTransactions} filtro={listFiltro} setFiltro={setFiltro} ></List>
                         </div>
                     </div>
                 </main>
             </div>
-        )
-    }
+    )
 }
 
 export {Home}

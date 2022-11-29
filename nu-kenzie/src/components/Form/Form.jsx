@@ -1,11 +1,12 @@
-import './form.css'
+import form from './form.module.css'
+import {Button} from '../Button/Button.jsx'
 
 function Form({transations,setTransations,filtro,setFiltro}){
-    let id=transations.length-1
+    const id=transations.length-1
     function dataForm(event){
         event.preventDefault()
-        let dataForm=[...event.target.elements]
-         let data={}
+        const dataForm=[...event.target.elements]
+        const data={}
         dataForm.forEach(el=>{
             if((el.tagName==='INPUT' || el.tagName==='SELECT') && el.value !==''){
                 data[el.id]=el.value
@@ -32,10 +33,10 @@ function Form({transations,setTransations,filtro,setFiltro}){
                 <input placeholder='descrição' required type="text" id='description'/>
                 <label htmlFor="" aria-disabled>Ex: Compra de roupas</label>
             </div>
-            <div className='value'>
+            <div className={form.value}>
                 <div>
                     <label htmlFor="value">Valor</label>
-                    <div id='valor'> 
+                    <div id={form.valor}> 
                         <p>R$:</p>
                         <input placeholder='valor' required={true} type="number" min={0} id='value'/>
                     </div>
@@ -49,7 +50,7 @@ function Form({transations,setTransations,filtro,setFiltro}){
                     </select>
                 </div>
             </div>
-            <button>Inserir valor</button>
+            <Button>Inserir valor</Button>
         </form>
     )
 }

@@ -1,11 +1,11 @@
-import './list.css'
+import list from './list.module.css'
 import noCards from '../../img/NoCard.svg'
 import {Card} from '../Card/card'
 
 function List({transations,setTransations,filtro,setFiltro}){
     if(transations.length>0){
         return(
-            <div className='list'>
+            <div className={list.list}>
                 {
                     filtro ?   
 
@@ -18,7 +18,7 @@ function List({transations,setTransations,filtro,setFiltro}){
                         })
                         :
                         (
-                            <div className='list'>
+                            <div className={list.list}>
                                 <h2>Você ainda não possui nenhum lançamento</h2>
                                 <img src={noCards} alt="" />
                             </div>
@@ -31,7 +31,7 @@ function List({transations,setTransations,filtro,setFiltro}){
     }
     else{
         return(
-            <div className='list'>
+            <div className={list.list}>
                 <h2>Você ainda não possui nenhum lançamento</h2>
                 <img src={noCards} alt="" />
             </div>

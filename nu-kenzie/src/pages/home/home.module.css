@@ -1,0 +1,100 @@
+.home{
+    margin: 0 auto;
+    max-width: 600px;
+    min-width: 300px;
+}
+
+.home header{
+    margin: 0 auto;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu{
+    display: flex;
+    gap:15px
+}
+
+.esquerda{
+    display: flex;
+    width: 100vw;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.direita{
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap:15px
+}
+
+.home main{
+    height: 100%;
+    width: 100%;
+}
+
+.header{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:10px
+}
+
+.header p{
+    font-size: 25px;
+}
+
+.direita nav{
+    display: flex;
+    width: 500px;
+    justify-content: space-around;
+}
+
+.lancamentos{
+    height: 400px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lancamentos h2{
+    display: flex;
+    text-align: center;
+}
+
+@media (min-width:600px) {
+    .home{
+        max-width: 80vw;
+        margin: 0 auto;
+    }
+
+    .home header{
+        margin: 15px auto;
+        width: 80vw;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+
+    .direita,.esquerda{
+        width: 50%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .home main{
+        max-width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+}
